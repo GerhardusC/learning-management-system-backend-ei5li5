@@ -100,6 +100,10 @@ app.get("/lessons_by_tags", verifyToken, getLessonsByTags);
 
 app.get("/learner/completed_lessons", verifyToken, getCompletedLessons);
 
+app.get("/", (req, res) => {
+  res.send("I'm working.");
+});
+
 // Complete lesson endpoint
 
 app.post("/learner/complete_lesson", verifyToken, completeLesson);
