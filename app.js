@@ -34,6 +34,7 @@ const getCompletedLessons =
   require("./controllers/lessonControllers/getCompletedLessons").getCompletedLessons;
 const handleRedirect = require("./middleware/auth/googleToken").handleRedirect;
 const genGoogleToken = require("./middleware/auth/googleToken").genToken;
+const dotenv = require("dotenv");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -42,8 +43,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
+dotenv.config();
 mongoose.connect(
-  "mongodb+srv://harduscronje:qwewerert@lmsei5li5cluster0.cwhemhu.mongodb.net/LMS?retryWrites=true&w=majority"
+  `mongodb+srv://harduscronje:${process.env.DB_PASS}@lmsei5li5cluster0.cwhemhu.mongodb.net/LMS?retryWrites=true&w=majority`
 );
 
 // Google stuff, currently inactive.

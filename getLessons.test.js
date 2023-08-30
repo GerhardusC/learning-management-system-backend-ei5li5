@@ -1,8 +1,11 @@
 const LessonModel = require("./models/contentModels/lessonModel").LessonModel;
 const CreatorModel = require("./models/userModels/creatorModel");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb+srv://harduscronje:qwewerert@lmsei5li5cluster0.cwhemhu.mongodb.net/LMS?retryWrites=true&w=majority"
+  `mongodb+srv://harduscronje:${process.env.DB_PASS}@lmsei5li5cluster0.cwhemhu.mongodb.net/LMS?retryWrites=true&w=majority`
 );
 const getLessons = async () => {
   try {
